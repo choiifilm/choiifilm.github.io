@@ -641,4 +641,12 @@ footer p {
   }
 
   .stats { flex-direction: column; gap: 24px; }
+
+  /* 375px(아이폰 미니) 등 좁은 화면에서 GNB가 잘리지 않도록 축소 */
+  #gnb { padding: 0 16px; }
+  .gnb-inner { gap: 12px; }
+  .logo { font-size: 0.95rem; letter-spacing: 1px; white-space: nowrap; }
+  .nav-links { gap: 12px; }
+  .nav-links a { font-size: 0.7rem; letter-spacing: 0.5px; white-space: nowrap; }
+  .nav-links .btn-contact { padding: 6px 10px; }
 }
