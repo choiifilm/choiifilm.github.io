@@ -106,12 +106,12 @@ img {
   transition: width 0.3s;
 }
 
-.nav-links a:hover {
-  color: var(--white);
+@media (hover: hover) {
+  .nav-links a:hover { color: var(--white); }
 }
 
-.nav-links a:hover::after {
-  width: 100%;
+@media (hover: hover) {
+  .nav-links a:hover::after { width: 100%; }
 }
 
 .nav-links .btn-contact {
@@ -123,10 +123,12 @@ img {
 
 .nav-links .btn-contact::after { display: none; }
 
-.nav-links .btn-contact:hover {
-  background: var(--white);
-  color: var(--black);
-  border-color: var(--white);
+@media (hover: hover) {
+  .nav-links .btn-contact:hover {
+    background: var(--white);
+    color: var(--black);
+    border-color: var(--white);
+  }
 }
 
 /* ===== HERO ===== */
@@ -206,10 +208,12 @@ img {
   transition: all 0.4s;
 }
 
-.hero-btn:hover {
-  background: var(--white);
-  color: var(--black);
-  border-color: var(--white);
+@media (hover: hover) {
+  .hero-btn:hover {
+    background: var(--white);
+    color: var(--black);
+    border-color: var(--white);
+  }
 }
 
 .scroll-indicator {
@@ -334,9 +338,11 @@ section {
   border-top: 1px solid rgba(255,255,255,0.08);
 }
 
-.career-item:hover {
-  padding-left: 16px;
-  background: rgba(255,255,255,0.02);
+@media (hover: hover) {
+  .career-item:hover {
+    padding-left: 16px;
+    background: rgba(255,255,255,0.02);
+  }
 }
 
 .career-year {
@@ -402,8 +408,8 @@ section {
   transition: transform 0.5s;
 }
 
-.portfolio-item:hover .portfolio-thumb img {
-  transform: scale(1.05);
+@media (hover: hover) {
+  .portfolio-item:hover .portfolio-thumb img { transform: scale(1.05); }
 }
 
 .play-icon {
@@ -417,13 +423,18 @@ section {
   transition: opacity 0.3s;
 }
 
+/* 터치 기기는 호버가 없으므로 재생 아이콘을 항상 표시 */
+@media (hover: none) {
+  .play-icon { opacity: 1; }
+}
+
 .play-icon svg {
   width: 48px;
   height: 48px;
 }
 
-.portfolio-item:hover .play-icon {
-  opacity: 1;
+@media (hover: hover) {
+  .portfolio-item:hover .play-icon { opacity: 1; }
 }
 
 .portfolio-title {
@@ -450,10 +461,12 @@ section {
   font-family: inherit;
 }
 
-.btn-more:hover {
-  background: var(--black);
-  color: var(--white);
-  border-color: var(--black);
+@media (hover: hover) {
+  .btn-more:hover {
+    background: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+  }
 }
 
 .btn-more.expanded svg {
@@ -477,6 +490,7 @@ section {
 }
 
 .contact-card {
+  position: relative;
   padding: 48px 32px;
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 8px;
@@ -484,9 +498,11 @@ section {
   transition: all 0.3s;
 }
 
-.contact-card:hover {
-  border-color: rgba(255,255,255,0.3);
-  background: rgba(255,255,255,0.03);
+@media (hover: hover) {
+  .contact-card:hover {
+    border-color: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.03);
+  }
 }
 
 .contact-icon {
@@ -512,8 +528,15 @@ section {
   transition: color 0.3s;
 }
 
-.contact-card a:hover {
-  color: var(--gray-300);
+/* 카드 어디를 눌러도 링크가 바로 실행되도록 링크 영역을 카드 전체로 확장 */
+.contact-card a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+@media (hover: hover) {
+  .contact-card a:hover { color: var(--gray-300); }
 }
 
 /* ===== FOOTER ===== */
@@ -568,7 +591,9 @@ footer p {
   transition: opacity 0.3s;
 }
 
-.popup-close:hover { opacity: 1; }
+@media (hover: hover) {
+  .popup-close:hover { opacity: 1; }
+}
 
 .popup-video {
   position: relative;
